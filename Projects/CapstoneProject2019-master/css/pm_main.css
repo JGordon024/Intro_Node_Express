@@ -1,0 +1,805 @@
+@charset "UTF-8";
+
+/* 
+    Capstone 2019 Project
+    West-MEC Websites 
+    
+    Precision Machining Website
+    Author: Caleb Snow
+    Date:   3/6/19
+
+    Filename: pm_main.css 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Mobile Styles */
+
+/* The background image stays the same size and covers the whole page, preventing it from repeating for mobile styles or screens with too small of widths */
+html {
+  background-image: url(../img/campus.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  scroll-behavior: smooth;
+}
+
+#map {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: -2px;
+  width: 100vw;
+  height: 500px;
+}
+
+/* Sets a global variable*/
+:root {
+  --westmecOrange: rgba(255, 115, 0, 0.979);
+}
+
+/* Sets the margin of the body to 0 and the background to a dark gray to black color. The font weight is set to 400 and a font family is used */
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 300;
+  margin: auto;
+}
+
+/* page container to keep the body away from footer they are relative so it can be moved above the footer at all times*/
+#page-container {
+  position: relative;
+  height: 100%;
+}
+
+#content-wrap {
+  /* rem is a unit relative to the parent and it works out for the content of the page */
+  padding-bottom: 2.5rem;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  background-color: black;
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+
+.footerText {
+  color: white;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.2em;
+  padding-left: 0px;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+/* Works on the first section of the page, about the course. Gives it a black background, with an opacity so you can still see the backgorund. Font is now white, some padding is given, and the height is based on the amount of content filling it */
+#description {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.846);
+  color: white;
+  padding: 10px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 40px;
+  margin-top: -2px;
+  height: auto;
+}
+
+#chrisName {
+  margin-bottom: 10px;
+}
+
+#bio h2 {
+  font-size: 1.4em;
+}
+
+/* Navigation Styles */
+/* Uses the westmecOrange variable to set the color of the header, aligns the text in the center, the position is fixed so it will always show on the page, has a z-index set to the highest it can go so it is always on top, and has full width of the page */
+header {
+  background: black;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+}
+
+
+/* The nav is set to absolute position so that it can drop down, the text is aligned to the left of the nav, */
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: black;
+  width: 100%;
+  /* Makes the element squished all the way horizontally */
+  transform: scale(1, 0);
+  /* The origin on the transformation will be on the top */
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+/* Removes any spacing and styles on the unordered list items in the nav */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+/*  */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+/* Text becomes black when hovered above */
+nav a:hover {
+  color: var(--westmecOrange);
+}
+
+/* The nav element that is a sibiling of the nav-toggle class is being displayed*/
+.nav-toggle:checked~nav {
+  transform: scale(1, 1);
+}
+
+/* Hides the checkbox that is used for displaying the nav in mobile styles */
+.nav-toggle {
+  display: none;
+}
+
+/* The toggle label is being defined, which will later be used to show the nav in mobile */
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* The following all creates 3 white bar lines that will be used to replace the checkbox, which is being used to represent the navigation menu which the user can click to expand on */
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+/* Targeting the nav links that are sibilings of the nav toggle class that has been checked, when it is checked the user can see the links and a tranisition is used for it to appear. Transition also helps the text not show up until after the nav has fully gone down */
+.nav-toggle:checked~nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms
+}
+
+
+/* Article Styles */
+
+/* General rules for articles */
+article {
+  background: rgba(235, 207, 165, 0.575);
+  position: relative;
+  text-align: center;
+  padding-bottom: 50px;
+
+}
+
+article h1 {
+  color: white;
+  letter-spacing: 1px;
+  font-size: 2em;
+  /* added to make the spacing more visually pleasing */
+  padding-top: 15px;
+}
+
+article h1 {
+  color: white;
+  letter-spacing: 1px;
+  font-size: 2em;
+  /* added to make the spacing more visually pleasing */
+}
+
+article h1 {
+  color: white;
+  letter-spacing: 1px;
+  font-size: 2em;
+}
+
+article p {
+  margin: 20px;
+}
+
+#alpha {
+  margin-top: 10px;
+}
+
+/* Rules for the CTSO article */
+#CTSO h1 {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 3em;
+}
+
+#CTSO h2 {
+  font-size: 1.4em;
+}
+
+#CTSO ul li {
+  margin: 5px 0;
+  list-style: none;
+}
+
+#CTSO div.awards {
+  display: grid;
+  /* grid-template-columns: repeat(auto, 1fr); */
+  grid-auto-columns: 1fr 1fr 1fr;
+}
+
+#CTSO h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+#CTSO h4 {
+  margin-bottom: 10px;
+}
+
+#CTSO>img {
+  width: 100%;
+}
+
+/* Social Media Icons */
+.fa {
+  padding: 10px;
+  font-size: 3em;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 3px 1px;
+  border-radius: 50%;
+  float: left;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-twitter {
+  background-color: #1da1f2;
+  color: white;
+}
+
+.fa-facebook {
+  background-color: #3C5A99;
+  color: white;
+}
+
+.fa-instagram {
+  background-image: linear-gradient(to bottom right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  color: white;
+}
+
+.fa-github {
+  color: white;
+  background-color: rgb(51, 50, 50);
+}
+
+.fa-slack {
+  color: white;
+  background-image: linear-gradient(-60deg, #6ecadc, #e9a820, #e01563, #3eb991);
+}
+
+/* Gives some space from the image in the shopping menu */
+#keychain,
+#vicegrip,
+#pens {
+  margin-bottom: 20px;
+  background: white;
+}
+
+/* Form Styles */
+/* Defines the general mobile styles for the fieldset */
+fieldset {
+  width: 100%;
+  margin: 50px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background: white;
+}
+
+legend {
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 4em;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* The form was split in 3 parts, each part is 100% width in mobile styles and has 25px margin on top and bottom with none on the sides  */
+.inner-form,
+.middle-form,
+.bottom-form {
+  width: 100%;
+  margin: 25px 0;
+}
+
+/* Targets any input with the type text and area padding. Each input in the top form has a text type, and the last question in the form is textarea. It was have an ease transition for the border color when each element is focused*/
+input[type="text"],
+textarea {
+  padding: 15px 5px;
+  box-sizing: border-box;
+  width: 100%;
+  border: 2px solid black;
+  outline: none;
+  transition: all 200ms ease
+}
+
+/* When any input or textarea is focused/targeted, it will have a corder color of orange and a box-shadow of a black faded color */
+input:focus,
+textarea:focus {
+  border-color: orange;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .02), 0 0 8px rgba(0, 0, 0, .5);
+}
+
+/* Button for submitting defined */
+button#submit {
+  padding: 2px;
+  width: 200px;
+  font-size: 3em;
+  letter-spacing: 1px;
+  background: var(--westmecOrange);
+}
+
+/* Styles for the footer, aligns the text in the center of the footer and gives it space on the top */
+.footerText {
+  text-align: center;
+  font-size: 2em;
+  margin-top: -30px;
+}
+
+/* Defines the footer, giving it its width, and also making it stay at the bottom of the page */
+footer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: black;
+  padding-top: 0px;
+  padding-bottom: 60px;
+}
+
+/* Works on the links for the page. They're centered in the footer, white when not hovered above but are the west mec orange color set in the variable when hovered above. Also has an underline when hovered above. */
+#links {
+  color: white;
+  text-align: center;
+}
+
+#links a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  top: 25px;
+  text-align: center;
+  overflow: none;
+}
+
+#links a:hover {
+  color: var(--westmecOrange);
+  text-decoration: underline;
+}
+
+#mediaContainer {
+  text-align: center;
+  padding-left: 40px;
+}
+
+/* Styles for media buttons, including insta, twitter, and facebook */
+#media {
+  display: inline-block;
+}
+
+.fa {
+  position: relative;
+  top: 30px;
+}
+
+/* Image slideshow is now the full size of the screen */
+img#slideshow {
+  width: 100%;
+}
+
+
+
+/* Targets screen that are 800 pixels and larger */
+@media screen and (min-width: 900px) {
+
+  /* The nav togel label is no longer displayed */
+  .nav-toggle-label {
+    display: none;
+  }
+
+  /* The header is displayed in grids, with one column an */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  /* The logo spans from the 2nd to 3rd colum */
+  .logo {
+    grid-column: 2/ 3;
+  }
+
+  /*  */
+  nav {
+    /* Undid all of the earlier mobile version features added to the nav */
+    all: unset;
+    /* It takes up columns 3-4 */
+    grid-column: 3/4;
+    /* The display is flex so that is moves as the screen is squished */
+    display: flex;
+    /* Pushes the content to the end of the flex, or in this case to the right of the page */
+    justify-content: flex-end;
+    /* Everything in the nav is aligned to the center of the element */
+    align-items: center;
+  }
+
+  /* Shows the links and the animation for when the link is hovered above */
+  nav a {
+    opacity: 1;
+    position: relative
+  }
+
+  /* Displays the ul nested in the nav as flex so that they are organized in a line */
+  nav ul {
+    display: flex;
+  }
+
+  /* Sets the margins of the navigation list items */
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  /*Creates the animation for when the nav is hovered above, it creates a bar that will appear above each link and will ease in and out in 250ms */
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: var(--westmecOrange);
+    position: absolute;
+    top: -.5em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  /* Shows the animation when the links are hovered above */
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+
+  /* Footer Styles */
+  #page-container {
+    position: relative;
+    min-height: 100%
+  }
+
+  #content-wrap {
+    /* rem is a unit relative to the parent and it works out for the content of the page */
+    padding-bottom: 2.5rem;
+  }
+
+  /* Styles for the footer for desktop screens. */
+  .footerText {
+    text-align: center;
+    font-size: 2em;
+    margin-top: -30px;
+    padding-right: 20px;
+  }
+
+  footer {
+    position: relative;
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  /* Each section except the description has a white background color with rounded edges, a black shadow with an opacity of .5, and has padding to add make it look better visually*/
+  #bio,
+  #CTSO,
+
+  fieldset {
+    position: relative;
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+    padding: 10px 15px;
+    border-radius: 90px;
+    box-shadow: 5px 10px rgba(0, 0, 0, .5);
+  }
+
+  /* Makes the image of the instructor 200 pixels large, and tells it where to be on the article*/
+  #alpha {
+    height: 100%;
+    border-radius: 50%;
+    width: 200px;
+    position: relative;
+    display: block;
+    z-index: 99;
+    left: -60px;
+    top: -40px;
+  }
+
+  /* Makes the instructors image a circle */
+  .makeCircle {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    left: 12%;
+  }
+
+  #profileBox {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+
+  }
+
+  /*Gives both bio id's the padding  */
+  #firstBio,
+  #secondBio,
+  #quote {
+    padding: 0 90px;
+  }
+
+  #quote {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  /* Positions his name as needed */
+  #chrisName {
+    margin: 0px 0px;
+    margin-top: -150px;
+    color: black;
+    text-align: center;
+    /* Used to stop his name from running into his image */
+    font-size: 3vw;
+  }
+
+  #bio h2 {
+    padding-top: 20px;
+    font-size: 1.6em;
+    color: orange;
+  }
+
+  #degreeHeader {
+    position: relative;
+    left: 170px;
+  }
+
+  .sectionDegree {
+    padding-top: 2px;
+    padding-left: 500px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  #firstDegree {
+    position: relative;
+    top: -100px;
+    left: -10vh;
+  }
+
+  #secondDegree {
+    position: relative;
+    top: -30px;
+    left: -65px;
+  }
+
+  .bioText {
+    font-size: 1.4em;
+    text-align: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .bioText:first-of-type {
+    text-align: center;
+  }
+
+  /* CTSO Section */
+  /* Targets the CTSO article, givving it the appropiate padding and raidus */
+  article#CTSO {
+    margin: 50px auto;
+
+    width: 80%;
+    text-align: left;
+    position: relative;
+    background-color: white;
+    color: black;
+    font-family: sans-serif;
+    padding: 10px 15px;
+    border-radius: 90px;
+    padding-bottom: 50px;
+  }
+
+
+  article#CTSO h1 {
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+    font-size: 3em;
+  }
+
+  article#CTSO h2 {
+    font-size: 1.5em;
+  }
+
+  article#CTSO h2,
+  h4 {
+    margin: 10px;
+    display: inline-block;
+
+  }
+
+  #CTSO ul li {
+    margin-left: 10px;
+  }
+
+  #CTSO>img {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+
+  /* Form Styles */
+  /* Allows the form to be as wide as 800px, but besides that it will be 80% on the screen. Gives some padding and a smaller radius than the articles. */
+  fieldset {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 20px;
+  }
+
+  /* The inner form content in the top form are now about 30% of the screen with some margin spacing on the right of each inpuit */
+  .top-form .inner-form {
+    width: 29%;
+    float: left;
+    margin-right: 5%;
+  }
+
+  /* The address input will not have any margin on the right, to prevent elements from being pushed around  */
+  .top-form .inner-form:last-child {
+    margin-right: 0;
+  }
+
+  /*Positions the map, making it 70% of the vertical viewport and gives a height of 500 pixels. Also gives it margins on the top and bottom */
+  #map {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 70vw;
+    height: 500px;
+  }
+
+  #mapDiv {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    position: fixed;
+    text-align: center;
+    display: inline-block;
+  }
+
+  #adjustMap {
+    width: 800px;
+    text-align: center;
+  }
+
+
+
+  /* this is the span element holding the description of the course */
+  .description {
+    margin: 40px 100px;
+    /* height: auto; */
+  }
+
+  /* Defines the size and positions for both of the colleges he went to */
+  #GWCC {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    left: 80px;
+    top: -15px;
+  }
+
+  #UTI {
+    height: 100px;
+    width: 200px;
+    position: relative;
+    top: 90px;
+    left: -60px;
+  }
+
+  /* Targets the media icons as a whole */
+  #media {
+    margin-top: -12px;
+  }
+
+  /* Targets the links */
+  #links {
+    color: white;
+    text-align: center;
+  }
+
+  #links a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: -10px;
+    text-align: center;
+    overflow: none;
+  }
+
+  #links a:hover {
+    color: var(--westmecOrange);
+    text-decoration: underline;
+  }
+
+  /* Targets the social media icons */
+  .fa {
+    padding: 10px;
+    font-size: 3em;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 3px 1px;
+    border-radius: 50%;
+    float: left;
+    top: 4px;
+  }
+
+}
