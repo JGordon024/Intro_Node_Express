@@ -1,0 +1,59 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Contact Us
+  link(rel='stylesheet' href='reset.css')
+  link(rel='stylesheet' href='pm_main.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='about.css')
+header
+  img.logo(src='west-mec.png')
+  input#nav-toggle.nav-toggle(type='checkbox')
+  nav
+    ul
+      li
+        a(href='index.html') Home
+      li
+        a(href='about.html') About
+      li
+        a(href='CTSO.html') CTSO
+      li
+        a(href='shop.html') Shop
+      li
+        a(href='contact.html') Contact
+  label.nav-toggle-label(for='nav-toggle')
+    span
+form
+  fieldset
+    legend Contact Us
+    .top-form
+      .inner-form
+        label Name
+        input#name(name=' name' type='text' placeholder='First Name Last Name' required='')
+      .inner-form
+        label Email
+        input#email(for='email' type='text' placeholder='Email Address' required='')
+      .inner-form
+        label Address
+        input#address(name='address' type='text' placeholder='Home Address' required='')
+    .middle-form
+      label What is your Current Grade?
+      select#gradeList(required='')
+        option(value='Freshmen') Freshmen
+        option(value='Sophomore') Sophomore
+        option(value='Junior') Junior
+        option(value='Senior') Senior
+    .bottom-form
+      label Do you have any questions?
+      textarea#userQuestions(name='userQuestions' cols='50' rows='10')
+    button#submit Submit
+footer
+  #links
+    p
+      a(href='https://drive.google.com/file/d/1dH3h6C3VaGFJM_OQs96lUrLw8STLl5Hh/view') Course Overview
+  section#mediaContainer
+    #media
+      a.fa.fa-facebook(href='#' title='Facebook')
+      a.fa.fa-twitter(href='#' title='Twitter')
+      a.fa.fa-instagram(href='#' title='Instagram')
+      a.fa.fa-linked-in(href='#' title='linked-in')
