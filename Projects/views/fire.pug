@@ -3,28 +3,28 @@ html
   head
     meta(charset='utf-8')
     title Precision Machining
-    link(rel='stylesheet' href='css/reset.css')
-    link(rel='stylesheet' href='css/pm_main.css')
-    script(src='src/pm_slideshow.js' async='')
+    link(rel='stylesheet' href='/css/reset.css' type="text/css")
+    link(rel='stylesheet' href='/css/pm_main.css' type="text/css")
+    script(src='/src/pm_slideshow.js' async='')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   #page-container
     #content-wrap
       // Nav (Holds Logo along with tabs)
       header
-        img.logo(src='/img/west-mec.png')
+        img.logo(src='../img/west-mec.png')
         input#nav-toggle.nav-toggle(type='checkbox')
         nav
           ul
             li
-              a(href='index.pug') Home
+              a(href='fire') Fire Types
             li
-              a(href='about.pug') About
+              a(href='water') Water Types
             li
-              a(href='ctso.pug') CTSO
+              a(href='earth') Earth Types
             li
-              a(href='shop.pug') Shop
+              a(href='electric') Electric Types
             li
-              a(href='contact.pug') Contact
+              a(href='dragon') Dragon Types
         label.nav-toggle-label(for='nav-toggle')
           span
       img#slideshow(name='slide')
@@ -42,7 +42,7 @@ html
       // Some information about the instructor, Chris Brideman. Includes his experience and college education
       #profileBox
         article#bio
-          img#alpha(src='/img/Chris Bridgeman.png' alt='Your instructor')
+          img#alpha(src='../img/Chris Bridgeman.png' alt='Your instructor')
           h1#chrisName Chris Bridgeman
           h2 Experience
           p#secondBio.bioText
@@ -52,8 +52,8 @@ html
             | certifications they provide to their students.
           h2#degreeHeader Degrees
           p#firstBio.bioText
-            img#GWCC(src='/img/GWCC_logo.png' alt='GWCC')
-            img#UTI(src='/img/UTI_logo.png' alt='UTI')
+            img#GWCC(src='../img/GWCC_logo.png' alt='GWCC')
+            img#UTI(src='../img/UTI_logo.png' alt='UTI')
             section#firstDegree.sectionDegree
               | - Associates Degree for Industrial Design
               | Technology
@@ -67,7 +67,7 @@ html
             em Thanos
       // About the CTSO. Starts with the SkillsUSA logo, then what their mission is, their work, and finally 3 sections for the awards they've gotten from Regionals, State, and Nationals
       article#CTSO
-        img#officers(src='/img/Skills-USA-1030x668.png' alt='')
+        img#officers(src='../img/Skills-USA-1030x668.png' alt='')
         h1 CTSO
         h2 Our Mission
         p
@@ -137,6 +137,10 @@ html
       span#adjustMap
         #mapP
           iframe#map(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13302.688129094173!2d-112.2928375!3d33.5359117!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1fbd2919e78fa444!2sWestMEC+Central+Campus!5e0!3m2!1sen!2sus!4v1557272063721!5m2!1sen!2sus' width='800' height='500' frameborder='0' style='border:0' allowfullscreen='')
+    
+    //- call data from fetch and server.js
+    .main=pokemon
+
     footer
       #links
         p
