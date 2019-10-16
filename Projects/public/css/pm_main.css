@@ -476,13 +476,14 @@ img#slideshow {
     /* Undid all of the earlier mobile version features added to the nav */
     all: unset;
     /* It takes up columns 3-4 */
-    grid-column: 3/4;
+    grid-column: 3/5;
     /* The display is flex so that is moves as the screen is squished */
     display: flex;
     /* Pushes the content to the end of the flex, or in this case to the right of the page */
     justify-content: flex-end;
     /* Everything in the nav is aligned to the center of the element */
     align-items: center;
+    margin-right: 10px;
   }
 
   /* Shows the links and the animation for when the link is hovered above */
